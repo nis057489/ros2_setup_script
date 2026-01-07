@@ -1,5 +1,34 @@
 #!/bin/bash
 
+set -euo pipefail
+
+usage() {
+	cat <<'EOF'
+Usage:
+  ./install_ros2.sh <humble|jazzy>
+
+Examples:
+  ./install_ros2.sh humble
+  ./install_ros2.sh jazzy
+EOF
+}
+
+if [[ ${1-} == "" || ${1-} == "-h" || ${1-} == "--help" ]]; then
+	usage
+	exit 1
+fi
+
+ROS_DISTRO="${1,,}"
+case "$ROS_DISTRO" in
+	humble|jazzy)
+		;;
+	*)
+		echo "Error: unsupported ROS distro '$ROS_DISTRO' (expected: humble|jazzy)" >&2
+		usage
+		exit 2
+		;;
+esac
+
 locale  # check for UTF-8
 
 sudo apt update && sudo apt install -y locales
@@ -20,4 +49,4 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 sudo apt update
 sudo apt upgrade -y
 
-sudo apt install -y ros-humble-desktop ros-dev-tools
+sudo apt install -y "ros-${ROS_DISTRO}-desktop" ros-dev-tools
