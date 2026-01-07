@@ -1,6 +1,6 @@
 # ROS 2 install script (Humble/Jazzy)
 
-This repo contains a simple installer script that sets up the ROS 2 apt repo and installs either ROS 2 Humble or ROS 2 Jazzy.
+This repo contains a simple installer script that sets up the ROS 2 apt repo and installs either ROS 2 Humble or ROS 2 Jazzy. For example, you can install run this after creating a Distrobox for either ROS version, e.g., `distrobox create -i ubuntu:24.04 jazzy_env`.
 
 ## Local usage
 
