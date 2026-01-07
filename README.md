@@ -12,10 +12,14 @@ bash install_ros2.sh jazzy
 
 ## Curl + run
 
-Replace `<USER>` and `<REPO>` with your GitHub org/user and repository name.
+### Humble
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/nis057489/ros2_setup_script/refs/heads/main/install_ros2.sh | bash -s -- humble
-# or
+```
+
+### Jazzy
+
+```bash
 curl -fsSL https://raw.githubusercontent.com/nis057489/ros2_setup_script/refs/heads/main/install_ros2.sh | bash -s -- jazzy
 ```
